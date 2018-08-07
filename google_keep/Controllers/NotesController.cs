@@ -20,6 +20,7 @@ namespace google_keep.Controllers
             _context = context;
         }
 
+        
         // GET: api/Notes
         //[HttpGet]
         //public IEnumerable<Note> GetNote()

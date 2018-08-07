@@ -1,5 +1,5 @@
 language: csharp
-solution: todo-mvc-csharp-problem-vermarahul18.sln
+solution: google_keep.sln
 notifications:
   email:
     on_success: always
@@ -9,5 +9,5 @@ mono: none
 dotnet: 2.1
 script:
   - dotnet restore
-  - dotnet test todo-mvc-csharp-problem-vermarahul18.Tests
+  - dotnet test test_class1
   
