@@ -9,4 +9,5 @@ mono: none
 dotnet: 2.1
 script:
   - dotnet restore
+  - dotnet test todo-mvc-csharp-problem-vermarahul18.Tests
   

@@ -14,5 +14,7 @@ namespace google_keep.Models
         }
 
         public DbSet<google_keep.Models.Note> Note { get; set; }
+        public DbSet<google_keep.Models.CheckList> CheckList { get; set; }
+        public DbSet<google_keep.Models.Labels> Labels { get; set; }
     }
 }

@@ -12,3 +12,17 @@ C:\Users\Admin\source\repos\google_keep\google_keep\obj\Debug\netcoreapp2.1\goog
 C:\Users\Admin\source\repos\google_keep\google_keep\bin\Debug\netcoreapp2.1\google_keep.pdb
 C:\Users\Admin\source\repos\google_keep\google_keep\obj\Debug\netcoreapp2.1\google_keep.dll
 C:\Users\Admin\source\repos\google_keep\google_keep\obj\Debug\netcoreapp2.1\google_keep.pdb
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\bin\Debug\netcoreapp2.1\google_keep.deps.json
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\bin\Debug\netcoreapp2.1\google_keep.runtimeconfig.json
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\bin\Debug\netcoreapp2.1\google_keep.runtimeconfig.dev.json
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\bin\Debug\netcoreapp2.1\google_keep.dll
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\bin\Debug\netcoreapp2.1\google_keep.pdb
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.csproj.CoreCompileInputs.cache
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.RazorAssemblyInfo.cache
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.RazorAssemblyInfo.cs
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.AssemblyInfoInputs.cache
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.AssemblyInfo.cs
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.RazorTargetAssemblyInfo.cache
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.dll
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.pdb
+D:\workspace\c#_assignment\todo-mvc-csharp-problem-vermarahul18\google_keep\obj\Debug\netcoreapp2.1\google_keep.csprojAssemblyReference.cache
