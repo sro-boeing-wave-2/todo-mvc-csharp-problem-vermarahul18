@@ -99,7 +99,7 @@ namespace XUnitTestProject1
                             new Labels(){label = "Label-2-1-Deletable"},
                             new Labels(){ label = "Label-2-2-Deletable"}
                         },
-            Pinned = false
+            Pinned = true
         };
 
         Note TestNoteDelete = new Note()
@@ -135,24 +135,34 @@ namespace XUnitTestProject1
 
         }
 
+      
         [Fact]
-        public async void TestPost()
+        public async void PostData()
         {
-            var json = JsonConvert.SerializeObject(TestNotePost);
-            var stringcontent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
-            var response = await _client.PostAsync("/api/Notes", stringcontent);
-            var responsedata = response.StatusCode;
-            Assert.Equal(HttpStatusCode.Created, responsedata);
+            HttpRequestMessage postMessage = new HttpRequestMessage(HttpMethod.Post, "api/Notes")
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(TestNotePost), UnicodeEncoding.UTF8, "application/json")
+            };
+            var response = await _client.SendAsync(postMessage);
+            response.EnsureSuccessStatusCode();
+            var responseString = await response.Content.ReadAsStringAsync();
+            var obj = JsonConvert.DeserializeObject<Note>(responseString);
+            Assert.True(TestNotePost.IsEquals(obj));
+
         }
 
         [Fact]
         public async void TestPut()
         {
-            var json = JsonConvert.SerializeObject(TestNoteProper);
-            var stringcontent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
-            var response = await _client.PutAsync("/api/Notes/1", stringcontent);
-            var responsedata = response.StatusCode;
-            Assert.Equal(HttpStatusCode.OK, responsedata);
+            HttpRequestMessage putMessage = new HttpRequestMessage(HttpMethod.Put, "api/Notes/1")
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(TestNotePut), UnicodeEncoding.UTF8, "application/json")
+            };
+            var response = await _client.SendAsync(putMessage);
+            response.EnsureSuccessStatusCode();
+            var responseString = await response.Content.ReadAsStringAsync();
+            var obj = JsonConvert.DeserializeObject<Note>(responseString);
+            Assert.True(TestNotePut.IsEquals(obj));
         }
 
         [Fact]
@@ -161,6 +171,7 @@ namespace XUnitTestProject1
             var response = await _client.DeleteAsync("api/Notes?Title=this is deleted title");
             var responsecode = response.StatusCode;
             Assert.Equal(HttpStatusCode.NoContent, responsecode);
+            _context.Note.Should().NotContain("this is deleted title");
         }
 
     }

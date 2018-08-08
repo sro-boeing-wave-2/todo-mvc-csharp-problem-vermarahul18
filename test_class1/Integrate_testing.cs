@@ -19,6 +19,10 @@ namespace TEST
             var optionBuilder = new DbContextOptionsBuilder<NoteContext>();
             optionBuilder.UseInMemoryDatabase("any string");
             notecontext = new NoteContext(optionBuilder.Options);
+            notecontext.Note.AddRange(notebyid);
+            notecontext.SaveChanges();
+
+
             _controller = new NotesController(notecontext);
 
 
@@ -57,41 +61,72 @@ namespace TEST
             Pinned = false
         };
 
-
-        public void createtestnotes(NoteContext notesContext)
+        Note notebyid = new Note()
         {
-            var note = new Note()
-            {
-                Title = "this is test title",
-                text = "some text",
-                labels = new List<Labels>
+            Title = "this is test title",
+            text = "some text",
+            labels = new List<Labels>
                 {
                     new Labels{ label="My First Tag" },
                     new Labels{ label = "My second Tag" },
                     new Labels{ label = "My third Tag" },
                 },
-                checklist = new List<CheckList>
+            checklist = new List<CheckList>
                 {
                     new CheckList{Check="first item"},
                     new CheckList{Check="second item"},
                     new CheckList{Check="third item"},
                 },
-                Pinned = true
-            };
+            Pinned = true
+        };
 
-            notesContext.Note.AddRange(note);
-            notesContext.SaveChanges();
-        }
+        //public void createtestnotes(NoteContext notesContext)
+        //{
+        //    var note = new Note()
+        //    {
+        //        Title = "this is test title",
+        //        text = "some text",
+        //        labels = new List<Labels>
+        //        {
+        //            new Labels{ label="My First Tag" },
+        //            new Labels{ label = "My second Tag" },
+        //            new Labels{ label = "My third Tag" },
+        //        },
+        //        checklist = new List<CheckList>
+        //        {
+        //            new CheckList{Check="first item"},
+        //            new CheckList{Check="second item"},
+        //            new CheckList{Check="third item"},
+        //        },
+        //        Pinned = true
+        //    };
+
+        //    notesContext.Note.AddRange(note);
+        //    notesContext.SaveChanges();
+        //}
+
+  
+
         [Fact]
         public async void TestGetNotes()
         {
-            createtestnotes(notecontext);
+            //createtestnotes(notecontext);
             var result = await _controller.GetNoteByPrimitive(0, null, null, true);
             var objectresult = result as OkObjectResult;
             var notes = objectresult.Value as List<Note>;
             Assert.Equal(1, notes.Count);
         }
 
+        [Fact]
+        public async void TestGetByID()
+        {
+
+            var result = await _controller.GetNoteByPrimitive(6, null, null, false);
+            var objectresult = result as OkObjectResult;
+            var notes = objectresult.Value as List<Note>;
+            Console.WriteLine(notes);
+            Assert.Equal(notes[0], notebyid);
+        }
 
         [Fact]
         public async void TestPostNotes()
@@ -112,7 +147,7 @@ namespace TEST
             //Console.WriteLine(GetNoteByPrimitive.Id);
             Assert.Equal(note.Title, TestNotePut.Title);
         }
-        //note.Title
+    
 
         [Fact]
         public async void Delete()

@@ -139,7 +139,7 @@ namespace google_keep.Controllers
             _context.Note.Add(note);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetNoteByPrimitive", new { id = note.Id }, note);
+            return CreatedAtAction(nameof(GetNoteByPrimitive),note);
         }
 
         // DELETE: api/Notes/5
