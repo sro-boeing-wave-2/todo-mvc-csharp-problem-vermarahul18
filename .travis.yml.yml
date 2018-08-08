@@ -9,5 +9,5 @@ mono: none
 dotnet: 2.1
 script:
   - dotnet restore
-  - dotnet test test_class1
+  - dotnet test test_class1/
   
