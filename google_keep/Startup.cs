@@ -40,7 +40,7 @@ namespace google_keep
             else
             {
                 services.AddDbContext<NoteContext>(options =>
-               options.UseInMemoryDatabase("InMemoryDataBaseString"));
+               options.UseInMemoryDatabase("NoteContext"));
             }
 
             //services.AddDbContext<NoteContext>(options =>
