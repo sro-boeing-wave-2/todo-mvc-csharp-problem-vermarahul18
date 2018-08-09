@@ -34,7 +34,7 @@ namespace google_keep.Controllers
               [FromQuery(Name = "Id")] int Id,
               [FromQuery(Name = "Title")] string Title,
               [FromQuery(Name = "text")] string text,
-              [FromQuery(Name = "Pinned")] bool Pinned)
+              [FromQuery(Name = "Pinned")] bool? Pinned)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace google_keep.Controllers
             temp = _context.Note.Include(x => x.checklist).Include(x => x.labels)
                 .Where(element => element.Title == ((Title == null) ? element.Title : Title)
                       && element.text == ((text == null) ? element.text : text)
-                      && element.Pinned == ((!Pinned) ? element.Pinned : Pinned)
+                      && element.Pinned == ((Pinned==null) ? element.Pinned : Pinned)
                       && element.Id == ((Id == 0) ? element.Id : Id)).ToList();
 
 

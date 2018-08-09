@@ -121,7 +121,7 @@ namespace TEST
         public async void TestGetByID()
         {
 
-            var result =  await _controller.GetNoteByPrimitive(6, null, null, false);
+            var result =  await _controller.GetNoteByPrimitive(6, null, null, true);
             var objectresult = result as OkObjectResult;
             var notes = objectresult.Value as List<Note>;
             Console.WriteLine(notes);
