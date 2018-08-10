@@ -32,7 +32,7 @@ namespace google_keep
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            if (_hosting.IsDevelopment())
+            if (_hosting.IsDevelopment() || _hosting.IsEnvironment("Production"))
             {
                 services.AddDbContext<NoteContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("NoteContext")));
@@ -65,15 +65,13 @@ namespace google_keep
                 app.UseHsts();
             }
 
-
             app.UseHttpsRedirection();
-            app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
+            app.UseMvc();
         }
     }
 }
